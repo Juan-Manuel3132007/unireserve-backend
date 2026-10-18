@@ -1,0 +1,14 @@
+[tool.ruff]
+line-length = 110
+target-version = "py311"
+exclude = ["alembic/versions"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "W"]
+# B008: Depends() como valor por defecto es el patron normal de FastAPI.
+# UP042: se mantiene `str, Enum` en lugar de StrEnum por compatibilidad con
+#        el tipo Enum de SQLAlchemy y con la serializacion de Pydantic.
+ignore = ["B008", "UP042"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
